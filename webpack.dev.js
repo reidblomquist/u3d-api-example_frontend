@@ -15,7 +15,7 @@ const SERVER_PORT = '3000';
 module.exports = {
   cache: true,
   debug: true,
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'source-map',
 
   entry: {
     main: [
@@ -36,6 +36,7 @@ module.exports = {
 
   output: {
     filename: '[name].js',
+    sourceMapFilename: '[name].map',
     path: path.resolve('./target'),
     publicPath: '/'
   },

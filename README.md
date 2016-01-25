@@ -45,7 +45,7 @@ $ npm install
 ## Commands
 #### Develop
 ```shell
-$ gulp
+$ gulp serve.dev
 ```
 
 - Start the Webpack dev server at <a href="http://localhost:3000" target="_blank">localhost:3000</a>
