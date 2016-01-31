@@ -11,8 +11,11 @@ import {RgbaService} from './rgba.service';
         <legend>Background Color</legend>
         <div class="col-md-12">
           <div class="form-group">
-            <div class="input-group">
+            <div class="col-md-4">
               <input type="text" class="form-control bg-colorpicker" value="rgba(255,255,255,1)"/>
+            </div>
+            <div class="col-md-2">
+              <a class="btn btn-raised btn-warning" (click)="changeColor();">Update</a>
             </div>
           </div>
         </div>
@@ -27,9 +30,9 @@ export class BackgroundAdjustComponent implements OnInit {
 
 
   ngOnInit() {
-    this._rgbaService.getSettings()
+    this._rgbaService.getRgba()
         .subscribe(
-            settings => this.settings = settings,
+            rgba => this.rgba = rgba,
             error => alert(`Server error. Try again later`));
     this.initColorPicker();
   }
@@ -39,17 +42,17 @@ export class BackgroundAdjustComponent implements OnInit {
   }
 
   changeColor() {
-    var color = $('.bg-colorpicker').colorpicker();
-    this.updateSettings( color.r, color.g, color.b, color.a  );
+    var color = $('.bg-colorpicker').data('colorpicker').color.toRGB();
+    this.updateRgba( color.r, color.g, color.b, color.a  );
   }
 
-  updateSettings (R: number, G: number, B: number, A: number) {
+  updateRgba (R: number, G: number, B: number, A: number) {
     if (R == null || G == null || B == null || A == null) {
       return;
     }
-    this._rgbaService.updateSettings(R, G, B, A)
+    this._rgbaService.updateRgba(R, G, B, A)
         .subscribe(
-            rgba  => this.settings.push(rgba),
+            rgba  => this.rgba,
             error => alert(error));
   }
 }

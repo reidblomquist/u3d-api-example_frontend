@@ -27,7 +27,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(
                     this.http = http;
                     this._rgbaUrl = 'http://localhost:8080/rgba';
                 }
-                RgbaService.prototype.getSettings = function () {
+                RgbaService.prototype.getRgba = function () {
                     return this.http.get(this._rgbaUrl)
                         .map(function (res) { return res.json(); })
                         .catch(this.logAndPassOn);
@@ -38,7 +38,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(
                     console.error(error);
                     return Observable_1.Observable.throw(error);
                 };
-                RgbaService.prototype.updateSettings = function (R, G, B, A) {
+                RgbaService.prototype.updateRgba = function (R, G, B, A) {
                     var headers = new http_1.Headers();
                     headers.append('Content-Type', 'application/json');
                     return this.http.post(this._rgbaUrl, JSON.stringify({ R: R, G: G, B: B, A: A }), { headers: headers })

@@ -9,7 +9,7 @@ export class RgbaService {
 
   private _rgbaUrl = 'http://localhost:8080/rgba';
 
-  getSettings () {
+  getRgba () {
     return this.http.get(this._rgbaUrl)
                     .map(res => <Rgba> res.json())
                     .catch(this.logAndPassOn);
@@ -22,7 +22,7 @@ export class RgbaService {
     return Observable.throw(error);
   }
 
-  updateSettings (R: number, G: number, B: number, A: number) : Observable<Rgba>  {
+  updateRgba (R: number, G: number, B: number, A: number) : Observable<Rgba>  {
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
 

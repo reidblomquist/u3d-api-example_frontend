@@ -54,7 +54,6 @@ export class HeroListComponent implements OnInit {
   }
 
   goToLastHero() {
-
     var height = 0;
     $('.heroes div').each(function(i, value){
       height += parseInt($(this).height());

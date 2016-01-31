@@ -25,29 +25,29 @@ System.register(['angular2/core', './rgba.service'], function(exports_1) {
                 }
                 BackgroundAdjustComponent.prototype.ngOnInit = function () {
                     var _this = this;
-                    this._rgbaService.getSettings()
-                        .subscribe(function (settings) { return _this.settings = settings; }, function (error) { return alert("Server error. Try again later"); });
+                    this._rgbaService.getRgba()
+                        .subscribe(function (rgba) { return _this.rgba = rgba; }, function (error) { return alert("Server error. Try again later"); });
                     this.initColorPicker();
                 };
                 BackgroundAdjustComponent.prototype.initColorPicker = function () {
                     $('.bg-colorpicker').colorpicker();
                 };
                 BackgroundAdjustComponent.prototype.changeColor = function () {
-                    var color = $('.bg-colorpicker').colorpicker();
-                    this.updateSettings(color.r, color.g, color.b, color.a);
+                    var color = $('.bg-colorpicker').data('colorpicker').color.toRGB();
+                    this.updateRgba(color.r, color.g, color.b, color.a);
                 };
-                BackgroundAdjustComponent.prototype.updateSettings = function (R, G, B, A) {
+                BackgroundAdjustComponent.prototype.updateRgba = function (R, G, B, A) {
                     var _this = this;
                     if (R == null || G == null || B == null || A == null) {
                         return;
                     }
-                    this._rgbaService.updateSettings(R, G, B, A)
-                        .subscribe(function (rgba) { return _this.settings.push(rgba); }, function (error) { return alert(error); });
+                    this._rgbaService.updateRgba(R, G, B, A)
+                        .subscribe(function (rgba) { return _this.rgba; }, function (error) { return alert(error); });
                 };
                 BackgroundAdjustComponent = __decorate([
                     core_1.Component({
                         selector: 'background-adjust-colorpicker',
-                        template: "\n  <div class=\"well col-md-12\">\n    <form class=\"form-horizontal\">\n      <fieldset>\n        <legend>Background Color</legend>\n        <div class=\"col-md-12\">\n          <div class=\"form-group\">\n            <div class=\"input-group\">\n              <input type=\"text\" class=\"form-control bg-colorpicker\" value=\"rgba(255,255,255,1)\"/>\n            </div>\n          </div>\n        </div>\n      </fieldset>\n    </form>\n  </div>\n  ",
+                        template: "\n  <div class=\"well col-md-12\">\n    <form class=\"form-horizontal\">\n      <fieldset>\n        <legend>Background Color</legend>\n        <div class=\"col-md-12\">\n          <div class=\"form-group\">\n            <div class=\"col-md-4\">\n              <input type=\"text\" class=\"form-control bg-colorpicker\" value=\"rgba(255,255,255,1)\"/>\n            </div>\n            <div class=\"col-md-2\">\n              <a class=\"btn btn-raised btn-warning\" (click)=\"changeColor();\">Update</a>\n            </div>\n          </div>\n        </div>\n      </fieldset>\n    </form>\n  </div>\n  ",
                     }), 
                     __metadata('design:paramtypes', [rgba_service_1.RgbaService])
                 ], BackgroundAdjustComponent);
