@@ -17,8 +17,14 @@ import {HeroData}          from '../hero-data';
 @Component({
   selector: 'my-toh',
   template: `
-  <h1>Tour of Heroes</h1>
-  <hero-list></hero-list>
+  <div class="navbar navbar-inverse">
+    <div class="col-md-12">
+      <h1>Tour of Heroes</h1>
+    </div>
+    <div class="col-md-12">
+      <hero-list></hero-list>
+    </div>
+  </div>
   `,
   directives:[HeroListComponent],
   providers: [

@@ -39,7 +39,7 @@ System.register(['angular2/core', 'angular2/http', './hero-list.component', './h
                 TohComponent = __decorate([
                     core_1.Component({
                         selector: 'my-toh',
-                        template: "\n  <h1>Tour of Heroes</h1>\n  <hero-list></hero-list>\n  ",
+                        template: "\n  <div class=\"navbar navbar-inverse\">\n    <div class=\"col-md-12\">\n      <h1>Tour of Heroes</h1>\n    </div>\n    <div class=\"col-md-12\">\n      <hero-list></hero-list>\n    </div>\n  </div>\n  ",
                         directives: [hero_list_component_1.HeroListComponent],
                         providers: [
                             http_1.HTTP_PROVIDERS,

@@ -31,7 +31,7 @@ System.register(['angular2/core', 'angular2/http', './country-list.component', '
                 TocComponent = __decorate([
                     core_1.Component({
                         selector: 'my-toc',
-                        template: "\n  <h1>Tour of Countries</h1>\n  <country-list></country-list>\n  ",
+                        template: "\n  <div class=\"navbar navbar-default\">\n    <div class=\"col-md-12\">\n      <h1>Tour of Countries</h1>\n    </div>\n    <div class=\"col-md-12\">\n      <country-list></country-list>\n    </div>\n  </div>\n  ",
                         directives: [country_list_component_1.CountryListComponent],
                         providers: [
                             http_1.HTTP_PROVIDERS,

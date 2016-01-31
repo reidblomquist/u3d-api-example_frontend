@@ -41,38 +41,25 @@
       System.import('app/main')
             .then(null, console.error.bind(console));
     </script>
+    <style>
+      .navbar {margin-bottom: 0;}
+    </style>
 
   </head>
 
   <body>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-3"></div>
-      <div class="col-md-6">
-        <my-toc>ToC Loading...</my-toc>
-      </div>
-      <div class="col-md-3"></div>
+      <my-toc>ToC Loading...</my-toc>
     </div>
     <div class="row">
-      <div class="col-md-3"></div>
-      <div class="col-md-6">
-        <my-toh>ToH Loading...</my-toh>
-      </div>
-      <div class="col-md-3"></div>
+      <my-toh>ToH Loading...</my-toh>
     </div>
     <div class="row">
-      <div class="col-md-3"></div>
-      <div class="col-md-6">
-        <my-wiki>Wiki Loading...</my-wiki>
-      </div>
-      <div class="col-md-3"></div>
+      <my-wiki>Wiki Loading...</my-wiki>
     </div>
     <div class="row">
-      <div class="col-md-3"></div>
-      <div class="col-md-6">
-        <my-wiki-form>Wikiform Loading...</my-wiki-form>
-      </div>
-      <div class="col-md-3"></div>
+      <my-wiki-form>Wikiform Loading...</my-wiki-form>
     </div>
   </div>
   <material></material>

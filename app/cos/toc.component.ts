@@ -12,8 +12,14 @@ import {XHRBackend}        from 'angular2/http';
 @Component({
   selector: 'my-toc',
   template: `
-  <h1>Tour of Countries</h1>
-  <country-list></country-list>
+  <div class="navbar navbar-default">
+    <div class="col-md-12">
+      <h1>Tour of Countries</h1>
+    </div>
+    <div class="col-md-12">
+      <country-list></country-list>
+    </div>
+  </div>
   `,
   directives:[CountryListComponent],
   providers: [
