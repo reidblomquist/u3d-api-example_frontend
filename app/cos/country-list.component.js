@@ -39,7 +39,9 @@ System.register(['angular2/core', './country.service'], function(exports_1) {
                 CountryListComponent = __decorate([
                     core_1.Component({
                         selector: 'country-list',
-                        template: "\n  <h3>Countries:</h3>\n  <ul>\n    <li *ngFor=\"#country of countries\">\n      {{ country.Name }}\n      {{ country.Code }}\n    </li>\n  </ul>\n  New Country:\n  <input #countryName />\n  <input #countryCode />\n  <button (click)=\"addCountry(countryName.value, countryCode.value); countryName.value=''; countryCode.value=''\">\n    Add Country\n  </button>\n  ",
+                    }),
+                    core_1.View({
+                        template: "\n  <h3>Countries:</h3>\n  <ul>\n    <li *ngFor=\"#country of countries\">\n      {{ country.Name }}\n      {{ country.Code }}\n    </li>\n  </ul>\n  <h3>New Country:</h3>\n\n  <form class=\"form-horizontal col-md-6\">\n    <fieldset>\n      <div class=\"form-group\">\n        <input #countryName class=\"form-control\" placeholder=\"Name\"/>\n      </div>\n      <div class=\"form-group\">\n        <input #countryCode class=\"form-control\" placeholder=\"Code\"/>\n      </div>\n      <div class=\"form-group\">\n        <a type=\"button\" class=\"btn btn-raised btn-primary\" (click)=\"addCountry(countryName.value, countryCode.value); countryName.value=''; countryCode.value=''\">\n          Add Country\n        </a>\n      </div>\n    </fieldset>\n  </form>\n  ",
                     }), 
                     __metadata('design:paramtypes', [country_service_1.CountryService])
                 ], CountryListComponent);

@@ -7,11 +7,13 @@ import {WikiComponent}     from './wiki/wiki.component';
 import {WikiFormComponent} from './wiki/wiki-form.component';
 import {TohComponent}      from './toh/toh.component';
 import {TocComponent}      from './cos/toc.component';
+import {MaterialComponent} from './material.component';
 
 bootstrap(WikiComponent);
 bootstrap(WikiFormComponent);
 bootstrap(TohComponent);
 bootstrap(TocComponent);
+bootstrap(MaterialComponent);
 
 /*
 Copyright 2016 Google Inc. All Rights Reserved.

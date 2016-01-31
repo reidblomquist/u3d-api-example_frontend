@@ -1,9 +1,11 @@
-import {Component, OnInit} from 'angular2/core';
+import {View, Component, OnInit} from 'angular2/core';
 import {Country}              from './country';
 import {CountryService}       from './country.service';
 
 @Component({
   selector: 'country-list',
+})
+@View({
   template: `
   <h3>Countries:</h3>
   <ul>
@@ -12,12 +14,23 @@ import {CountryService}       from './country.service';
       {{ country.Code }}
     </li>
   </ul>
-  New Country:
-  <input #countryName />
-  <input #countryCode />
-  <button (click)="addCountry(countryName.value, countryCode.value); countryName.value=''; countryCode.value=''">
-    Add Country
-  </button>
+  <h3>New Country:</h3>
+
+  <form class="form-horizontal col-md-6">
+    <fieldset>
+      <div class="form-group">
+        <input #countryName class="form-control" placeholder="Name"/>
+      </div>
+      <div class="form-group">
+        <input #countryCode class="form-control" placeholder="Code"/>
+      </div>
+      <div class="form-group">
+        <a type="button" class="btn btn-raised btn-primary" (click)="addCountry(countryName.value, countryCode.value); countryName.value=''; countryCode.value=''">
+          Add Country
+        </a>
+      </div>
+    </fieldset>
+  </form>
   `,
 })
 export class CountryListComponent implements OnInit {
