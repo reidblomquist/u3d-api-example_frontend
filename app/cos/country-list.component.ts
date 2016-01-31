@@ -6,7 +6,7 @@ import {CountryService}       from './country.service';
   selector: 'country-list',
   template: `
   <h3>Countries:</h3>
-  <div class="countries list-group" style="max-height:300px;overflow-y:scroll;overflow-x:hidden;" watch-update>
+  <div class="countries list-group" style="max-height:300px;overflow-y:scroll;overflow-x:hidden;">
     <div *ngFor="#country of countries">
       <div class="list-group-item">
         <div class="row-action-primary">
