@@ -47,7 +47,6 @@ export class CountryListComponent implements OnInit {
 
   constructor (private _countryService: CountryService) {}
 
-  countries:Country[];
 
   ngOnInit() {
     this._countryService.getCountries()
@@ -57,18 +56,24 @@ export class CountryListComponent implements OnInit {
   }
 
   addCountry (Name: string, Code: string) {
-    if (!Name || !Code) {return;}
+    if (!Name || !Code) {
+      return;
+    }
     this._countryService.addCountry(Name, Code)
         .subscribe(
             country  => this.countries.push(country),
             error => alert(error));
+    this.goToLastCountry();
+  }
 
+  goToLastCountry() {
     var height = 0;
     $('.countries div').each(function(i, value){
       height += parseInt($(this).height());
     });
+    height += $('.heroes div').first().height();
     height += '';
 
-    $('.countries').animate({scrollTop: height}, 300);
+    $('.countries').animate({scrollTop: height}, 3000);
   }
 }

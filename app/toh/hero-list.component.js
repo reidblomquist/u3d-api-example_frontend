@@ -28,6 +28,15 @@ System.register(['angular2/core', './hero.service'], function(exports_1) {
                     this._heroService.getHeroes()
                         .subscribe(function (heroes) { return _this.heroes = heroes; }, function (error) { return alert("Server error. Try again later"); });
                 };
+                HeroListComponent.prototype.goToLastHero = function () {
+                    var height = 0;
+                    $('.heroes div').each(function (i, value) {
+                        height += parseInt($(this).height());
+                    });
+                    height += $('.heroes div').first().height();
+                    height += '';
+                    $('.heroes').animate({ scrollTop: height }, 3000);
+                };
                 HeroListComponent.prototype.addHero = function (name) {
                     var _this = this;
                     if (!name) {
@@ -35,12 +44,7 @@ System.register(['angular2/core', './hero.service'], function(exports_1) {
                     }
                     this._heroService.addHero(name)
                         .subscribe(function (hero) { return _this.heroes.push(hero); }, function (error) { return alert(error); });
-                    var height = 0;
-                    $('.heroes div').each(function (i, value) {
-                        height += parseInt($(this).height());
-                    });
-                    height += '';
-                    $('.heroes').animate({ scrollTop: height }, 300);
+                    this.goToLastHero();
                 };
                 HeroListComponent = __decorate([
                     core_1.Component({

@@ -35,12 +35,16 @@ System.register(['angular2/core', './country.service'], function(exports_1) {
                     }
                     this._countryService.addCountry(Name, Code)
                         .subscribe(function (country) { return _this.countries.push(country); }, function (error) { return alert(error); });
+                    this.goToLastCountry();
+                };
+                CountryListComponent.prototype.goToLastCountry = function () {
                     var height = 0;
                     $('.countries div').each(function (i, value) {
                         height += parseInt($(this).height());
                     });
+                    height += $('.heroes div').first().height();
                     height += '';
-                    $('.countries').animate({ scrollTop: height }, 300);
+                    $('.countries').animate({ scrollTop: height }, 3000);
                 };
                 CountryListComponent = __decorate([
                     core_1.Component({

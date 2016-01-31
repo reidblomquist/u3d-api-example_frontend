@@ -53,19 +53,25 @@ export class HeroListComponent implements OnInit {
                        error => alert(`Server error. Try again later`));
   }
 
+  goToLastHero() {
+
+    var height = 0;
+    $('.heroes div').each(function(i, value){
+      height += parseInt($(this).height());
+    });
+    height += $('.heroes div').first().height();
+    height += '';
+
+    $('.heroes').animate({scrollTop: height}, 3000);
+  }
+
   addHero (name: string) {
     if (!name) {return;}
     this._heroService.addHero(name)
                      .subscribe(
                        hero  => this.heroes.push(hero),
                        error => alert(error));
-    var height = 0;
-    $('.heroes div').each(function(i, value){
-      height += parseInt($(this).height());
-    });
-    height += '';
-
-    $('.heroes').animate({scrollTop: height}, 300);
+    this.goToLastHero();
   }
 }
 

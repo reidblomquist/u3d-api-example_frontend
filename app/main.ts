@@ -3,14 +3,10 @@ import {bootstrap}         from 'angular2/platform/browser';
 // Add all operators to Observable
 import 'rxjs/Rx';
 
-import {WikiComponent}     from './wiki/wiki.component';
-import {WikiFormComponent} from './wiki/wiki-form.component';
 import {TohComponent}      from './toh/toh.component';
 import {TocComponent}      from './cos/toc.component';
 import {MaterialComponent} from './material.component';
 
-bootstrap(WikiComponent);
-bootstrap(WikiFormComponent);
 bootstrap(TohComponent);
 bootstrap(TocComponent);
 bootstrap(MaterialComponent);
