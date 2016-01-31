@@ -19,7 +19,7 @@ System.register(['angular2/core'], function(exports_1) {
             MaterialComponent = (function () {
                 function MaterialComponent() {
                 }
-                MaterialComponent.prototype.ngAfterViewInit = function () {
+                MaterialComponent.prototype.ngAfterViewChecked = function () {
                     $.material.init();
                 };
                 MaterialComponent = __decorate([
