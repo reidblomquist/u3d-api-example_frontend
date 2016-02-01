@@ -1,4 +1,4 @@
-import {Component, OnInit} from 'angular2/core';
+import {Component, OnInit, AfterViewChecked} from 'angular2/core';
 import {Rgba} from './rgba';
 import {RgbaService} from './rgba.service';
 
@@ -12,7 +12,7 @@ import {RgbaService} from './rgba.service';
         <div class="col-md-12">
           <div class="form-group">
             <div class="col-md-4">
-              <input type="text" class="form-control bg-colorpicker" value="rgba(255,255,255,1)"/>
+              <input type="text" class="form-control bg-colorpicker" *ngIf="rgba" value="rgba({{rgba.R}},{{rgba.G}},{{rgba.B}},{{rgba.A}})"/>
             </div>
             <div class="col-md-2">
               <a class="btn btn-raised btn-warning" (click)="changeColor();">Update</a>
@@ -24,7 +24,7 @@ import {RgbaService} from './rgba.service';
   </div>
   `,
 })
-export class BackgroundAdjustComponent implements OnInit {
+export class BackgroundAdjustComponent implements OnInit, AfterViewChecked {
 
   constructor (private _rgbaService: RgbaService) {}
 
@@ -35,6 +35,9 @@ export class BackgroundAdjustComponent implements OnInit {
         .subscribe(
             rgba => this.rgba = rgba,
             error => alert(`Server error. Try again later`));
+  }
+
+  ngAfterViewChecked() {
     this.initColorPicker();
   }
 

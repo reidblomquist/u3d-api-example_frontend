@@ -27,6 +27,8 @@ System.register(['angular2/core', './rgba.service'], function(exports_1) {
                     var _this = this;
                     this._rgbaService.getRgba()
                         .subscribe(function (rgba) { return _this.rgba = rgba; }, function (error) { return alert("Server error. Try again later"); });
+                };
+                BackgroundAdjustComponent.prototype.ngAfterViewChecked = function () {
                     this.initColorPicker();
                 };
                 BackgroundAdjustComponent.prototype.initColorPicker = function () {
@@ -47,7 +49,7 @@ System.register(['angular2/core', './rgba.service'], function(exports_1) {
                 BackgroundAdjustComponent = __decorate([
                     core_1.Component({
                         selector: 'background-adjust-colorpicker',
-                        template: "\n  <div class=\"well col-md-12\">\n    <form class=\"form-horizontal\">\n      <fieldset>\n        <legend>Background Color</legend>\n        <div class=\"col-md-12\">\n          <div class=\"form-group\">\n            <div class=\"col-md-4\">\n              <input type=\"text\" class=\"form-control bg-colorpicker\" value=\"rgba(255,255,255,1)\"/>\n            </div>\n            <div class=\"col-md-2\">\n              <a class=\"btn btn-raised btn-warning\" (click)=\"changeColor();\">Update</a>\n            </div>\n          </div>\n        </div>\n      </fieldset>\n    </form>\n  </div>\n  ",
+                        template: "\n  <div class=\"well col-md-12\">\n    <form class=\"form-horizontal\">\n      <fieldset>\n        <legend>Background Color</legend>\n        <div class=\"col-md-12\">\n          <div class=\"form-group\">\n            <div class=\"col-md-4\">\n              <input type=\"text\" class=\"form-control bg-colorpicker\" *ngIf=\"rgba\" value=\"rgba({{rgba.R}},{{rgba.G}},{{rgba.B}},{{rgba.A}})\"/>\n            </div>\n            <div class=\"col-md-2\">\n              <a class=\"btn btn-raised btn-warning\" (click)=\"changeColor();\">Update</a>\n            </div>\n          </div>\n        </div>\n      </fieldset>\n    </form>\n  </div>\n  ",
                     }), 
                     __metadata('design:paramtypes', [rgba_service_1.RgbaService])
                 ], BackgroundAdjustComponent);
