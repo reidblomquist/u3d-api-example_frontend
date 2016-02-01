@@ -28,6 +28,7 @@ export class BackgroundAdjustComponent implements OnInit {
 
   constructor (private _rgbaService: RgbaService) {}
 
+  rgba:Rgba;
 
   ngOnInit() {
     this._rgbaService.getRgba()
@@ -38,7 +39,7 @@ export class BackgroundAdjustComponent implements OnInit {
   }
 
   initColorPicker() {
-    $('.bg-colorpicker').colorpicker();
+    $('.bg-colorpicker').colorpicker({format: 'rgba'});
   }
 
   changeColor() {

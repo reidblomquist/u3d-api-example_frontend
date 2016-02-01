@@ -30,7 +30,7 @@ System.register(['angular2/core', './rgba.service'], function(exports_1) {
                     this.initColorPicker();
                 };
                 BackgroundAdjustComponent.prototype.initColorPicker = function () {
-                    $('.bg-colorpicker').colorpicker();
+                    $('.bg-colorpicker').colorpicker({ format: 'rgba' });
                 };
                 BackgroundAdjustComponent.prototype.changeColor = function () {
                     var color = $('.bg-colorpicker').data('colorpicker').color.toRGB();
