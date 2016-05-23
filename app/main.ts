@@ -4,13 +4,9 @@ import {bootstrap}         from 'angular2/platform/browser';
 import 'rxjs/Rx';
 
 import {MaincamComponent}      from './maincam/maincam.component';
-import {TohComponent}      from './toh/toh.component';
-import {TocComponent}      from './cos/toc.component';
 import {MaterialComponent} from './material.component';
 
 bootstrap(MaincamComponent);
-bootstrap(TohComponent);
-bootstrap(TocComponent);
 bootstrap(MaterialComponent);
 
 /*
